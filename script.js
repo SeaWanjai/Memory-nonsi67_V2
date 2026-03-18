@@ -294,19 +294,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteText = "หลายปีที่ผ่านมานี้ ไม่ใช่แค่เรื่องของการเรียน แต่คือเรื่องของมิตรภาพที่พวกเราสร้างขึ้นมาด้วยกัน ความทรงจำเหล่านี้จะเป็นของเราตลอดไป";
     let hasTyped = false;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                if (entry.target.classList.contains('note-section') && !hasTyped) {
-                    hasTyped = true;
-                    typeWriter();
-                }
-            }
-        });
-    }, { threshold: 0.0001 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // --- ส่วนที่แก้: ทำให้ทุกอย่างโชว์ทันที (Visible) ---
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible'); // บังคับให้เห็นทันที
+        if (el.classList.contains('note-section') && !hasTyped) {
+            hasTyped = true;
+            typeWriter();
+        }
+    });
 
     function typeWriter() {
         const el = document.getElementById('handwritten-note');
@@ -322,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typing();
     }
 
+    // แก้ไข Syntax ตรงวนลูปหมุนรูปโพลารอยด์
     document.querySelectorAll('.polaroid').forEach((p, index) => {
         const rot = index % 2 === 0 ? (Math.random() * -3 - 1) : (Math.random() * 3 + 1);
         p.style.setProperty('--rot', `${rot}deg`);

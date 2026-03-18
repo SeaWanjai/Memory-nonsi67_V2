@@ -388,9 +388,6 @@ footer { text-align: center; padding: 40px; color: var(--accent-gray); }
     order: 1; 
 }
 
-/* ======================================================
-   MOBILE RESPONSIVE (แปะต่อท้ายไฟล์เดิมได้เลย)
-   ====================================================== */
 @media (max-width: 768px) {
     .hero h1 { 
         font-size: 2.2rem !important; 
@@ -405,13 +402,13 @@ footer { text-align: center; padding: 40px; color: var(--accent-gray); }
     }
 
     .member-item, .member-item:nth-child(even) {
-        flex-direction: column !important; /* บังคับแนวตั้ง */
+        flex-direction: column !important; 
         text-align: center !important;
         width: 100% !important;
         max-width: 320px !important;
         margin: 0 auto !important;
         padding: 20px !important;
-        display: flex !important; /* บังคับให้แสดงผล */
+        display: flex !important; 
     }
 
     .member-polaroid {
