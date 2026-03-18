@@ -388,58 +388,36 @@ footer { text-align: center; padding: 40px; color: var(--accent-gray); }
     order: 1; 
 }
 
-@media (max-width: 600px) {
-    .photo-album-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .year-grid, .polaroid-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width:600px){
-
-.member-info h3{
-    font-size:1.6rem;
-}
-
-.member-info p{
-    font-size:1.1rem;
-}
-
-.sticky-note p{
-    font-size:1.4rem;
-}
-
-.hero h1{
-    font-size:2.2rem;
-}
-
+/* ======================================================
+   MOBILE RESPONSIVE (แปะต่อท้ายไฟล์เดิมได้เลย)
+   ====================================================== */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem !important; }
+    .hero h1 { 
+        font-size: 2.2rem !important; 
+    }
     
     .members-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 40px !important;
-        padding: 20px 10px !important;
+        gap: 30px !important;
+        padding: 20px !important;
     }
 
     .member-item, .member-item:nth-child(even) {
-        flex-direction: column !important;
+        flex-direction: column !important; /* บังคับแนวตั้ง */
         text-align: center !important;
         width: 100% !important;
         max-width: 320px !important;
         margin: 0 auto !important;
         padding: 20px !important;
+        display: flex !important; /* บังคับให้แสดงผล */
     }
 
     .member-polaroid {
         flex: 0 0 auto !important;
         width: 100% !important;
-        max-width: 280px !important;
+        max-width: 250px !important;
         margin: 0 auto !important;
         transform: rotate(0deg) !important;
     }
@@ -451,14 +429,16 @@ footer { text-align: center; padding: 40px; color: var(--accent-gray); }
     }
 
     .member-info h3 { font-size: 1.8rem !important; }
-    .member-info p { font-size: 1.2rem !important; }
+    .member-info p { font-size: 1.1rem !important; }
 
     .year-grid, .polaroid-grid { 
         grid-template-columns: 1fr !important; 
     }
-    
     .photo-album-grid { 
         grid-template-columns: repeat(2, 1fr) !important; 
     }
-}
-}
+    .sticky-note p { 
+        font-size: 1.4rem !important; 
+    }
+} 
+
