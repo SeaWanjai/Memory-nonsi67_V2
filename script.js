@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. ตัวแปรเริ่มต้น (Variables) ---
+ 
     const bgMusic = document.getElementById('bg-music');
     const musicSource = document.getElementById('music-source');
     const musicToggle = document.getElementById('music-toggle');
@@ -16,13 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollPos = 0;
     let wasMusicPlaying = false;
 
-    // API Config
     const CLOUD_CONFIG = {
         imgbb_key: 'ba584c155e9b64c57e201317448d6a38',
         sheet_url: 'https://sheetdb.io/api/v1/rr3drww9jhekg'
     };
 
-    // --- 2. ข้อมูลรูปภาพและวิดีโอ (Data) ---
     const yearData = {
         "2023": {
             video: "Clipmemory/Cilp2023.mp4",
@@ -112,9 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "2025": "song_forever.mp3"
     };
 
-    // --- 3. ฟังก์ชันส่วนกลาง (Core Functions) ---
-
-    // ฟังก์ชันเปิด Lightbox
     function openLightbox(url) {
         if (!lightbox || !lightboxImg) return;
         lightboxImg.src = url;
@@ -122,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.remove('hidden');
     }
 
-    // ฟังก์ชันเปลี่ยนเพลง
     function changeMusic(pageKey) {
         const newSrc = playlist[pageKey];
         if (musicSource.getAttribute('src') !== newSrc) {
@@ -133,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ฟังก์ชันช่วยแสดงรูปใน Album
     function appendPhoto(url, isCloud = false) {
         const photoGrid = document.getElementById('overlay-photos');
         if (!photoGrid) return;
@@ -154,8 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 4. แก้ปัญหา 4 รูปหน้าแรก (ทัศนศึกษา) ---
-    // สั่งให้รูปในคลาส .polaroid ทั้งหมดสามารถคลิกดู Lightbox ได้
     document.querySelectorAll('.polaroid img').forEach(img => {
         img.style.cursor = 'pointer';
         img.addEventListener('click', () => {
@@ -163,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 5. ระบบจัดการเพลงและวิดีโอ ---
     musicToggle.addEventListener('click', () => {
         if (bgMusic.paused) {
             bgMusic.play();
@@ -194,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     video.addEventListener('pause', resumeMusic);
     video.addEventListener('ended', resumeMusic);
 
-    // --- 6. ระบบ Overlay และ Cloud ---
     function renderUploadButton() {
         const photoGrid = document.getElementById('overlay-photos');
         if (!photoGrid || document.querySelector('.polaroid-plus-card')) return;
@@ -254,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. ระบบอัปโหลด ---
     const uploadInput = document.getElementById('cloud-upload-input');
     if (uploadInput) {
         uploadInput.onchange = async (e) => {
@@ -289,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- 8. ปิด Lightbox ---
     if (closeLightbox) {
         closeLightbox.addEventListener('click', () => {
             lightbox.classList.add('hidden');
@@ -304,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 9. เอฟเฟกต์อื่นๆ (Typewriter / Fade-in / Rotate) ---
     const noteText = "หลายปีที่ผ่านมานี้ ไม่ใช่แค่เรื่องของการเรียน แต่คือเรื่องของมิตรภาพที่พวกเราสร้างขึ้นมาด้วยกัน ความทรงจำเหล่านี้จะเป็นของเราตลอดไป";
     let hasTyped = false;
 
@@ -318,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.0001 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
