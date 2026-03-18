@@ -416,88 +416,49 @@ footer { text-align: center; padding: 40px; color: var(--accent-gray); }
     font-size:2.2rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem !important; }
+    
     .members-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 40px !important; 
+        gap: 40px !important;
         padding: 20px 10px !important;
     }
 
-    .member-item {
-        flex-direction: column !important; 
-        width: 90% !important;
+    .member-item, .member-item:nth-child(even) {
+        flex-direction: column !important;
+        text-align: center !important;
+        width: 100% !important;
         max-width: 320px !important;
         margin: 0 auto !important;
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        padding: 20px !important;
     }
 
     .member-polaroid {
-        transform: rotate(0deg) !important; 
+        flex: 0 0 auto !important;
         width: 100% !important;
-        margin: 0 auto !important;
-    }
-
-    .member-name {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-top: 15px !important;
-        width: 100% !important;
-        text-align: center !important;
-        font-size: 1.5rem !important;
-    }
-
-    .member-item, 
-    .member-item:nth-child(even), 
-    .member-item:nth-child(odd) {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: 100% !important;
-    }
-
-    .member-name {
-        margin: 15px 0 0 0 !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: static !important;
-    }
-
-    .member-description {
-        text-align: center !important;
-        margin: 5px auto !important;
-    }
-
-    .member-item:nth-child(even) {
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .member-item:nth-child(even) .member-name {
-        text-align: center !important;
-        margin: 15px auto 0 auto !important;
-        left: auto !important;
-        right: auto !important;
-    }
-
-    .member-item:nth-child(even) .member-info,
-    .member-item:nth-child(even) .member-details {
-        align-items: center !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-    }
-
-    .member-polaroid {
         max-width: 280px !important;
         margin: 0 auto !important;
+        transform: rotate(0deg) !important;
+    }
+
+    .member-info, .member-item:nth-child(even) .member-info {
+        text-align: center !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+
+    .member-info h3 { font-size: 1.8rem !important; }
+    .member-info p { font-size: 1.2rem !important; }
+
+    .year-grid, .polaroid-grid { 
+        grid-template-columns: 1fr !important; 
+    }
+    
+    .photo-album-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
     }
 }
-
 }
